@@ -13,7 +13,7 @@
   <title>Madmin Dashboard</title>
 </head>
 
-<body>
+<body class="grey lighten-4">
   <!-- Navigation -->
   <nav class="blue darken-2">
     <div class="container">
@@ -107,6 +107,130 @@
       </div>
   </section><!-- end Section: Statistics -->
 
+  <!-- Section: Visitors -->
+    <section class="section section-visitors blue lighten-4">
+      <div class="row">
+        <div class="col s12 m6 l8">
+          <!-- visitor graph -->
+          <div class="card-panel">
+            <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+          </div>
+        </div>
+        <div class="col s12 m6 l4">
+          <!-- Latest Comments -->
+          <ul class="collection with-header latest-comments">
+            <li class="collection-header">
+              <h5>Latest Comments</h5>
+            </li>
+            <li class="collection-item avatar">
+              <img src="img/person1.jpg" alt="user_profile" class="circle">
+              <span class="title">John Doe</span>
+              <p class="truncate">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis consequatur esse mollitia. Soluta minima ipsum dolore laboriosam deleniti quae sequi a libero beatae modi quo nobis commodi, quos, nulla placeat?</p>
+              <a href="" class="approve green-text">Approve</a> |
+              <a href="" class="deny red-text">Deny</a>
+            </li>
+            <li class="collection-item avatar">
+              <img src="img/person2.jpg" alt="user_profile" class="circle">
+              <span class="title">Steve Smith</span>
+              <p class="truncate">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis consequatur esse mollitia. Soluta minima ipsum dolore laboriosam deleniti quae sequi a libero beatae modi quo nobis commodi, quos, nulla placeat?</p>
+              <a href="" class="approve green-text">Approve</a> |
+              <a href="" class="deny red-text">Deny</a>
+            </li>
+            <li class="collection-item avatar">
+              <img src="img/person3.jpg" alt="user_profile" class="circle">
+              <span class="title">Ellen Williams</span>
+              <p class="truncate">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis consequatur esse mollitia. Soluta minima ipsum dolore laboriosam deleniti quae sequi a libero beatae modi quo nobis commodi, quos, nulla placeat?</p>
+              <a href="" class="approve green-text">Approve</a> |
+              <a href="" class="deny red-text">Deny</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  <!-- end Section: Visitors -->
+
+  <!-- Section: recent Posts and Todo -->
+    <section class="section section-recent">
+      <div class="row">
+        <div class="col s12 m6 l8">
+          <div class="card">
+            <div class="card-content">
+              <span class="cart-title">Recent Posts</span>
+              <table class="striped">
+                <thead>
+                  <tr>
+                    <th>Title</th>
+                    <th>Category</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Post One</td>
+                    <td>Web Development</td>
+                    <td>
+                      <a href="details.html" class="btn blue lighten-2">Details</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Post Two</td>
+                    <td>Graphic Design</td>
+                    <td>
+                      <a href="details.html" class="btn blue lighten-2">Details</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Post Three</td>
+                    <td>Web Development</td>
+                    <td>
+                      <a href="details.html" class="btn blue lighten-2">Details</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="col s12 m6 l4">
+          <div class="card">
+            <div class="card-content">
+              <span class="card-title">Quick TODOs</span>
+              <form id="todo-form">
+                <div class="input-field">
+                  <input type="text" id="todo" placeholder="Add TODO...">
+                </div>
+              </form>
+              <ul class="collection todos">
+                <li class="collection-item">
+                  <div>
+                    Create event page
+                    <a href="#!" class="secondary-content delete">
+                      <i class="material-icons">close</i>
+                    </a>
+                  </div>
+                </li>
+                <li class="collection-item">
+                  <div>
+                    Publish latest article
+                    <a href="#!" class="secondary-content delete">
+                      <i class="material-icons">close</i>
+                    </a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  <!-- end Section: recent Posts and Todo -->
+
+  <!-- Footer -->
+  <footer class="section blue white-text center main-footer">
+    <p>Madmin Panel Copyright &copy; 2018</p>
+  </footer><!-- end Footer -->
+
+
+
 
   <!-- Pre-loader -->
   <div class="preloader-wrapper big active">
@@ -121,9 +245,13 @@
     </div>
   </div>
 
+
+
   <!--Import jQuery before materialize.js-->
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  <script type="text/javascript" src="js/chart.js"></script> <!-- NOTE: conflict with preloader is solved in chart.js by putting the call to render chart inside a setTimeout() -->
   <script>
     // Show pre-loader animation before rest of page loads
     $('.section').hide();
@@ -149,9 +277,52 @@
               $(this).text(Math.ceil(now));
             }
           });
+        }); // end Counter
+
+        // Comments approve and deny
+        $('.approve').click(function(event) {
+          Materialize.toast('Comment Approved', 3000);
+          event.preventDefault();
         });
+        $('.deny').click(function(event) {
+          Materialize.toast('Comment Denied', 3000);
+          event.preventDefault();
+        }); // end Commnents approve and deny
+
+        // Quick todos
+        $('#todo-form').submit(function(event) {
+          event.preventDefault();
+          // get the user input from the todo field
+          let user_input = $('#todo').val();
+          // put user input into a new todo item and add it to the list
+          const output = `
+                <li class="collection-item">
+                  <div>
+                    ${user_input}
+                    <a href="#!" class="secondary-content delete">
+                      <i class="material-icons">close</i>
+                    </a>
+                  </div>
+                </li>
+                `;
+          console.log($('#todos'));
+          $('.todos').append(output);
+          // clear the user input field
+          $('#todo').val("");
+          // show a toast to inform user the too has been added
+          Materialize.toast('New TODO item has been added', 3000);
+        });
+
+        // Delete TODOs
+        $('.todos').on('click', '.delete', function(event) {
+          event.preventDefault();
+          $(this).parent().parent().remove();
+          // show a toast to inform user the too has been added
+          Materialize.toast('TODO item has been removed', 3000);
+        });
+
       });
-    }, 3000);
+    }, 1000); // end setTimeout
 
   </script>
 </body>
