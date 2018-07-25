@@ -229,7 +229,106 @@
     <p>Madmin Panel Copyright &copy; 2018</p>
   </footer><!-- end Footer -->
 
+  <!-- Fixed Action Button -->
+  <div class="fixed-action-btn">
+    <a class="btn-floating btn-large red">
+      <i class="material-icons">add</i>
+    </a>
+    <ul>
+      <li>
+        <a href="#post-modal" class="modal-trigger btn-floating blue waves-effect waves-light">
+          <i class="material-icons">mode_edit</i>
+        </a>
+      </li>
+      <li>
+        <a href="#category-modal" class="modal-trigger btn-floating blue waves-effect waves-light">
+          <i class="material-icons">folder</i>
+        </a>
+      </li>
+      <li>
+        <a href="#user-modal" class="modal-trigger btn-floating blue waves-effect waves-light">
+          <i class="material-icons">supervisor_account</i>
+        </a>
+      </li>
+    </ul>
+  </div><!-- end Fixed Action Button -->
 
+<!-- +++++++++ Modals ++++++++++++ -->
+  <!-- Post Modal -->
+  <div id="post-modal" class="modal">
+    <div class="modal-content">
+      <h4>Add Post</h4>
+      <form>
+        <div class="input-field">
+          <input type="text" id="post-title">
+          <label for="post-title">Title</label>
+        </div>
+        <div class="input-field">
+          <select id="post-category">
+            <option value="" disabled selected>Select Option</option>
+            <option value="1">Web Development</option>
+            <option value="2">Graphic Design</option>
+            <option value="3">Tech Gadgets</option>
+            <option value="4">Other</option>
+          </select>
+          <label for="#post-category">Category</label>
+        </div>
+        <div class="input-field">
+          <textarea name="post-body" id="post-body" class="materialize-textarea"></textarea>
+          <label for="#post-body">Body</label>
+        </div>
+      </form>
+      <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close btn blue white-text">Submit</a>
+      </div>
+    </div>
+  </div><!-- end Post Modal -->
+
+  <!-- Category Modal -->
+  <div id="category-modal" class="modal">
+    <div class="modal-content">
+      <h4>Add Category</h4>
+      <form>
+        <div class="input-field">
+          <input type="text" id="category-title">
+          <label for="category-title">Title</label>
+        </div>
+      </form>
+      <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close btn blue white-text">Submit</a>
+      </div>
+    </div>
+  </div><!-- end Category Modal -->
+
+  <!-- User Modal -->
+  <div id="user-modal" class="modal">
+    <div class="modal-content">
+      <h4>Add User</h4>
+      <form>
+        <div class="input-field">
+          <input type="text" id="user-name">
+          <label for="user-name">Name</label>
+        </div>
+        <div class="input-field">
+          <input type="email" id="user-email">
+          <label for="user-email">Email</label>
+        </div>
+        <div class="input-field">
+          <input type="password" id="user-password">
+          <label for="user-password">Password</label>
+        </div>
+        <div class="input-field">
+          <input type="password" id="user-confirm">
+          <label for="user-confirm">Confirm Password</label>
+        </div>
+      </form>
+      <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close btn blue white-text">Submit</a>
+      </div>
+    </div>
+  </div><!-- end User Modal -->
+
+<!-- +++++++++ end Modals ++++++++++++ -->
 
 
   <!-- Pre-loader -->
@@ -252,6 +351,7 @@
   <script type="text/javascript" src="js/materialize.min.js"></script>
   <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
   <script type="text/javascript" src="js/chart.js"></script> <!-- NOTE: conflict with preloader is solved in chart.js by putting the call to render chart inside a setTimeout() -->
+  <script src="https://cdn.ckeditor.com/4.10.0/standard/ckeditor.js"></script>
   <script>
     // Show pre-loader animation before rest of page loads
     $('.section').hide();
@@ -265,6 +365,15 @@
 
         // Initialize sideNav
         $('.button-collapse').sideNav();
+
+        // Initialize Modals
+        $('.modal').modal();
+
+        // Initialize Select
+        $('select').material_select();
+
+        // WYSIWYG editor for new Posts
+        CKEDITOR.replace( 'post-body' );
 
         // Counter
         $('.count').each(function() {
