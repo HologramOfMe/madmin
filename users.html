@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+  <link type="text/css" rel="stylesheet" href="css/main.css" />
+
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Madmin Dashboard</title>
+</head>
+
+<body class="grey lighten-4">
+  <!-- Navigation -->
+  <nav class="blue darken-2">
+    <div class="container">
+      <div class="nav-wrapper">
+        <a href="index.html" class="brand-logo">Madmin</a>
+        <a href="#" class="button-collapse show-on-large right" data-activates="side-nav">
+          <i class="material-icons">menu</i>
+        </a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="index.html">Dashboard</a></li>
+          <li><a href="posts.html">Posts</a></li>
+          <li><a href="categories.html">Categories</a></li>
+          <li><a href="comments.html">Comments</a></li>
+          <li class="active"><a href="users.html">Users</a></li>
+        </ul>
+        <!-- Side nav -->
+        <ul id="side-nav" class="side-nav">
+          <li>
+            <div class="user-view">
+              <div class="background">
+                <img src="img/ocean.jpg" alt="ocean">
+              </div>
+              <a href="#!">
+                <img src="img/person1.jpg" alt="user_image" class="circle">
+              </a>
+              <a href="#!">
+                <span class="name white-text">John Doe</span>
+              </a>
+              <a href="#!">
+                <span class="email white-text">john@fuzzmail.ninja</span>
+              </a>
+            </div>
+          </li>
+          <li><a href="index.html">
+            <i class="material-icons left">dashboard</i> Dashboard</a></li>
+          <li><a href="posts.html">Posts</a></li>
+          <li><a href="categories.html">Categories</a></li>
+          <li><a href="comments.html">Comments</a></li>
+          <li class="active"><a href="users.html">Users</a></li>
+          <li><div class="divider"></div></li>
+          <li><a class="subheader">Account Controls</a></li>
+          <li><a href="login.html" class="waves-effect">Log Out</a></li>
+        </ul><!-- end Side nav -->
+      </div>
+    </div>
+  </nav><!-- end Navigation -->
+
+  <!-- Section: Users -->
+  <section class="section section-users grey lighten-4">
+    <div class="container">
+      <div class="row">
+        <div class="col s12">
+          <div class="card">
+            <div class="card-content">
+              <span class="card-title">Users</span>
+              <table class="striped">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Registered</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td width="70">
+                      <img class="responsive-img circle" src="img/person1.jpg" alt="person1" style="width: 40px; margin-left: 10px;">
+                    </td>
+                    <td>John Doe</td>
+                    <td>jdoe@doeadear.com</td>
+                    <td>21st December 2017</td>
+                    <td>
+                      <a href="details.html" class="btn blue lighten-2">Profile</a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td width="70">
+                      <img class="responsive-img circle" src="img/person2.jpg" alt="person2" style="width: 40px; margin-left: 10px;">
+                    </td>
+                    <td>Brian Damage</td>
+                    <td>turfed@grassforever.com.au</td>
+                    <td>13th January 2018</td>
+                    <td>
+                      <a href="details.html" class="btn blue lighten-2">Profile</a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td width="70">
+                      <img class="responsive-img circle" src="img/person3.jpg" alt="person3" style="width: 40px; margin-left: 10px;">
+                    </td>
+                    <td>Wendy Wantsome</td>
+                    <td>wendywants@getsome.com</td>
+                    <td>25th December 2017</td>
+                    <td>
+                      <a href="details.html" class="btn blue lighten-2">Profile</a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td width="70">
+                      <img class="responsive-img circle" src="img/person4.jpg" alt="person4" style="width: 40px; margin-left: 10px;">
+                    </td>
+                    <td>David Bitbreaker</td>
+                    <td>breaker@techcrunch.com</td>
+                    <td>16th February 2018</td>
+                    <td>
+                      <a href="details.html" class="btn blue lighten-2">Profile</a>
+                    </td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+            <div class="card-action">
+              <ul class="pagination">
+                <li class="disabled">
+                  <a href="#!" class="grey-text">
+                    <i class="material-icons">chevron_left</i>
+                  </a>
+                </li>
+                <li class="active blue lighten-2">
+                  <a href="#!" class="white-text">1</a>
+                </li>
+                <li class="waves-effect">
+                  <a href="#!" class="blue-text">2</a>
+                </li>
+                <li class="waves-effect">
+                  <a href="#!" class="blue-text">3</a>
+                </li>
+                <li class="waves-effect">
+                  <a href="#!" class="blue-text">
+                    <i class="material-icons">chevron_right</i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!-- Section: Users -->
+
+
+  <!-- Footer -->
+  <footer class="section blue white-text center main-footer">
+    <p>Madmin Panel Copyright &copy; 2018</p>
+  </footer><!-- end Footer -->
+
+  <!-- Fixed Action Button -->
+  <div class="fixed-action-btn">
+    <a href="#user-modal" class="btn-floating btn-large red modal-trigger">
+      <i class="material-icons">add</i>
+    </a>
+  </div><!-- end Fixed Action Button -->
+
+<!-- +++++++++ Modals ++++++++++++ -->
+<!-- User Modal -->
+<div id="user-modal" class="modal">
+  <div class="modal-content">
+    <h4>Add User</h4>
+    <form>
+      <div class="input-field">
+        <input type="text" id="user-name">
+        <label for="user-name">Name</label>
+      </div>
+      <div class="input-field">
+        <input type="email" id="user-email">
+        <label for="user-email">Email</label>
+      </div>
+      <div class="input-field">
+        <input type="password" id="user-password">
+        <label for="user-password">Password</label>
+      </div>
+      <div class="input-field">
+        <input type="password" id="user-confirm">
+        <label for="user-confirm">Confirm Password</label>
+      </div>
+    </form>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close btn blue white-text">Submit</a>
+    </div>
+  </div>
+</div><!-- end User Modal -->
+
+
+  <!-- Pre-loader -->
+  <div class="preloader-wrapper big active">
+    <div class="spinner-layer spinner-blue-only">
+      <div class="circle-clipper left">
+        <div class="circle"></div>
+      </div><div class="gap-patch">
+        <div class="circle"></div>
+      </div><div class="circle-clipper right">
+        <div class="circle"></div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!--Import jQuery before materialize.js-->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+
+  <script>
+    // Show pre-loader animation before rest of page loads
+    $('.section').hide();
+    setTimeout(function() {
+      $(document).ready(function () {
+        // Show sections
+        $('.section').fadeIn();
+
+        // hide preloader after timeout
+        $('.preloader-wrapper').fadeOut();
+
+        // Initialize sideNav
+        $('.button-collapse').sideNav();
+
+        // Initialize Modals
+        $('.modal').modal();
+
+      });
+    }, 1000); // end setTimeout
+
+  </script>
+</body>
+
+</html>
